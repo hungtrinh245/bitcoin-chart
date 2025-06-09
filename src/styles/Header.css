@@ -1,0 +1,138 @@
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.header.dark {
+    background-color: #282c34;
+    color: #ffffff;
+    border-color: #444;
+}
+
+.header.light {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #ddd;
+}
+
+.header .logo h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.header .controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Cho phép các controls xuống dòng trên mobile */
+    justify-content: flex-end;
+}
+
+.interval-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.interval-button {
+    background-color: transparent;
+    border: 1px solid;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.header.dark .interval-button {
+    border-color: #61dafb;
+    color: #61dafb;
+}
+.header.dark .interval-button:hover {
+    background-color: #61dafb;
+    color: #282c34;
+}
+.header.dark .interval-button.active {
+    background-color: #61dafb;
+    color: #282c34;
+}
+
+.header.light .interval-button {
+    border-color: #333;
+    color: #333;
+}
+.header.light .interval-button:hover {
+    background-color: #333;
+    color: #fff;
+}
+.header.light .interval-button.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.price-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9em;
+    flex-wrap: wrap; /* Wrap text on smaller screens */
+}
+
+.price-info button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.price-info button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+.price-info button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: inherit; /* Kế thừa màu từ header */
+    transition: color 0.2s ease;
+}
+
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 10px;
+    }
+    .header .controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .interval-buttons {
+        flex-wrap: wrap;
+    }
+    .price-info {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

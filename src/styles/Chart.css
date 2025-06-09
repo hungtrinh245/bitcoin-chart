@@ -1,0 +1,27 @@
+/* src/styles/Chart.css */
+
+.chart-container {
+    flex-grow: 1; /* Cho phép biểu đồ chiếm hết không gian còn lại */
+    min-height: 400px; /* Chiều cao tối thiểu cho biểu đồ */
+    height: calc(100vh - 150px); /* Chiều cao động (tùy chỉnh dựa vào header) */
+    border: 1px solid;
+    border-radius: 8px;
+    overflow: hidden; /* Đảm bảo biểu đồ không tràn ra ngoài */
+    transition: border-color 0.3s ease;
+}
+
+.app.dark .chart-container {
+    border-color: #444;
+}
+
+.app.light .chart-container {
+    border-color: #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 350px; /* Chiều cao cố định hơn trên mobile */
+        width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng */
+    }
+}
