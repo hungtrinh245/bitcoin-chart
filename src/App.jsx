@@ -29,11 +29,38 @@ function App() {
         document.body.style.backgroundColor = theme === 'dark' ? '#1a1a1a' : '#f0f2f5';
         document.body.style.color = theme === 'dark' ? '#ffffff' : '#333333';
     }, [theme]);
-  return (
-    <>
-    
-    </>
-  )
+   return (
+        <div className={`app ${theme}`}>
+            <Header
+                theme={theme}
+                toggleTheme={toggleTheme}
+                intervals={INTERVALS}
+                selectedInterval={interval}
+                onIntervalChange={handleIntervalChange}
+                currentPrice={currentPrice}
+                priceOneMinAgo={priceOneMinAgo}
+                setCurrentPrice={setCurrentPrice}
+                setPriceOneMinAgo={setPriceOneMinAgo}
+            />
+            <div className="main-content">
+                <IndicatorsPanel
+                    showRSI={showRSI} setShowRSI={setShowRSI}
+                    showMACD={showMACD} setShowMACD={setShowMACD}
+                    showEMA={showEMA} setShowEMA={setShowEMA}
+                    showSMA={showSMA} setShowSMA={setShowSMA}
+                />
+                <ChartContainer
+                    theme={theme}
+                    interval={interval}
+                    onDragEnd={handleDragEnd}
+                    showRSI={showRSI}
+                    showMACD={showMACD}
+                    showEMA={showEMA}
+                    showSMA={showSMA}
+                />
+            </div>
+        </div>
+    );
 }
 
 export default App
